@@ -1,0 +1,74 @@
+#!/bin/bash
+
+SOURCEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo Checking configuration correctness..
+# are they exists?
+if ! [ -r $SOURCEDIR/serveraddr ]
+then
+echo Server address file \'serveraddr\' not exist or permission denied.
+exit 1
+fi
+if ! [ -r $SOURCEDIR/installpath ]
+then
+echo Install path file \'installpath\' not exist or permission denied.
+exit 1
+fi
+# is the content correct?
+curl $(cat $SOURCEDIR/serveraddr) 2>/dev/null 1>/dev/null
+if [ $? -gt 0 ] 
+then
+echo WARNING: Specified server is unreachable.
+echo          But you may continue.
+fi
+if ! [ -d $(cat $SOURCEDIR/installpath) ]
+then
+echo WARNING: Specified install path not exist. Creating..
+mkdir -p $(cat $SOURCEDIR/installpath)
+if [ $? -gt 0 ]
+then
+    echo Unable to create the install folder.
+    exit 1
+fi
+fi
+
+
+case "$1" in
+    install)
+    $SOURCEDIR/zhwkpkg-install.sh $2
+    ;;
+    remove)
+    $SOURCEDIR/zhwkpkg-remove.sh $2
+    ;;
+    deploy)
+    $SOURCEDIR/zhwkpkg-deploy.sh $2
+    ;;
+    rebuild)
+    $SOURCEDIR/zhwkpkg-rebuild.sh
+    ;;
+    package)
+    $SOURCEDIR/zhwkpkg-package.sh $2
+    ;;
+    unpackage)
+    $SOURCEDIR/zhwkpkg-unpackage.sh $2
+    ;;
+    list)
+    $SOURCEDIR/zhwkpkg-list.sh
+    ;;
+    query)
+    $SOURCEDIR/zhwkpkg-query.sh
+    ;;
+    get)
+    $SOURCEDIR/zhwkpkg-get.sh $2
+    ;;
+    observe)
+    $SOURCEDIR/zhwkpkg-observe.sh $2
+    ;;
+    investigate)
+    $SOURCEDIR/zhwkpkg-observe $2 $3
+    ;;
+    *)
+    echo "Invalid command. Please read the document for usage."
+    exit 1
+    ;;
+esac
