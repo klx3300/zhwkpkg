@@ -15,6 +15,12 @@ PKGNAME="$1"
 
 INSTALLDIR="$(cat $SOURCEDIR/installpath)"
 
+if [ $PKGNAME = "modulefiles" ]
+then
+    echo "You are kidding me, right?"
+    exit 1
+fi
+
 if ! [ -d $INSTALLDIR/$PKGNAME ]
 then
     echo "Selected package did not exist."

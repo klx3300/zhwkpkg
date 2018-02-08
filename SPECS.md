@@ -85,9 +85,12 @@ It's way too simple even doing this by your hand.
 
 ### Package Distribution Server
 
-(not implemented yet)
+It's actually a simple HTTP server that satisfying the following requirements:
 
+1. When accessing `<the_url_given_in_serveraddr>/pkglist.lst`, it will return a plain text file that each line is a package name. Naming format doesn't matter, but you'd better keep it clear.
+2. When accessing `<the_url_given>/<package_name>.tar.bz2`, it will return the package content.
 
+As mentioned above, the tarball name itself doesn't matter at all. the package name and version installed into the system is defined by the folder name in the tarball and `VERSION` file inside it. But to make it easy-understanding, I recommend you to make the package names in your list be the actual `<package_name>-<package_version>`. *be reasonable*.
 
 ### Builtin Commands
 
@@ -109,6 +112,4 @@ It's way too simple even doing this by your hand.
 
 `get` download the specified package *from the package distribution server* and place it in the current working directory.
 
-`observe` list the package content.
-
-`investigate` given the relative path of a file in the package, print its content out to `stdout`.
+`modulepath` give the path of installed modulefiles. for `bashrc`.
