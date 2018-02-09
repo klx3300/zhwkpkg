@@ -96,20 +96,18 @@ As mentioned above, the tarball name itself doesn't matter at all. the package n
 
 `install` install a package *from the package distribution server specified in serveraddr file*.
 
-`remove` uninstall an already installed package.
+`remove` uninstall an already installed package. -- done
 
-`deploy` install a package from file. You have to specify the package path.
+`deploy` install a package from file. You have to specify the package path. -- done
 
-`rebuild` rebuild all installed packages' modulefile from scratch. (from installation folder)
+`rebuild` rebuild all installed packages' modulefile from scratch. (from installation folder) -- done
 
-`package` -- for package authors. given a path to a folder, check whether it satisfy the package specification or not. If satisfied, compress it into a package, place in the current working directory(`pwd`). 
+`package` -- for package authors. given a path to a folder, check whether it satisfy the package specification or not. If satisfied, compress it into a package, place in the current working directory(`pwd`).  -- done
 
-`unpackage` extract the package in place.
+`list` list all installed packages and their versions. -- done
 
-`list` list all installed packages and their versions.
+`query` list all possible packages and their versions from the distribution server. -- done
 
-`query` list all possible packages and their versions from the distribution server.
+`get` download the specified package *from the package distribution server* and place it in the current working directory. -- done
 
-`get` download the specified package *from the package distribution server* and place it in the current working directory.
-
-`modulepath` give the path of installed modulefiles. for `bashrc`.
+`modulepath` give the path of installed modulefiles. for `bashrc`. -- done
