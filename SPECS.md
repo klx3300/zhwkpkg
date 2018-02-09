@@ -2,7 +2,7 @@
 
 
 
-### zhwkpkg Installation Folder Structure
+### zhwkpkg(this program) Installation Folder Structure
 
 ```text
 +- installed-dir/
