@@ -76,6 +76,9 @@ else
 fi
 
 echo "Satisfactory. Start packaging.."
-tar jcvf ./package.tar.bz2 $DIR
+PWD="$(pwd)"
+cd $DIR/../
+tar jcvf $PWD/package.tar.bz2 $(basename $DIR)
 state_checker
+cd $PWD
 echo "Done. saved to ./package.tar.bz2"
