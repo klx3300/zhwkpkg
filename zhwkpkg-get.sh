@@ -13,7 +13,7 @@ state_checker(){
 
 PKGPATH="$(cat $SOURCEDIR/serveraddr)/$1.tar.bz2"
 
-STATUSCODE="$(curl -I $PKGPATH 2\>/dev/null | head -n 1 | cut -d$\' \' -f2)"
+STATUSCODE="$(curl -I $PKGPATH 2>/dev/null | head -n 1 | cut -d$' ' -f2)"
 
 if [ $? -gt 0 ]
 then
