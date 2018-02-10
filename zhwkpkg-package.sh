@@ -49,7 +49,7 @@ then
     WARN
     echo "MODULEFILE not exist. Continue.."
 else
-    cat $DIR/MODULEFILE | grep "\#\%INSTALL_FOLDER\%\#"
+    cat $DIR/MODULEFILE | grep "\#\%INSTALL_FOLDER\%\#" > /dev/null
     if [ $? -gt 0 ]
     then
         WARN
