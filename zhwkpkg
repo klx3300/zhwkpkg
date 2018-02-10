@@ -15,12 +15,6 @@ echo "Install path file \'installpath\' not exist or permission denied." 1>&2
 exit 1
 fi
 # is the content correct?
-curl $(cat $SOURCEDIR/serveraddr) 2>/dev/null 1>/dev/null
-if [ $? -gt 0 ] 
-then
-echo "WARNING: Specified server is unreachable." 1>&2
-echo "         But you may continue." 1>&2
-fi
 if ! [ -d $(cat $SOURCEDIR/installpath) ]
 then
 echo "WARNING: Specified install path not exist. Creating.." 1>&2
