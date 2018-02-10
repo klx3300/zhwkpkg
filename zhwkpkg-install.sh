@@ -11,9 +11,9 @@ state_checker(){
 # execute zhwkpkg-get to download the package..
 echo "Downloading the package.."
 $SOURCEDIR/zhwkpkg-get.sh $1
-state_checker()
+state_checker
 echo "Deploying the package.."
 $SOURCEDIR/zhwkpkg-deploy.sh $(pwd)/$1.tar.bz2
-state_checker()
+state_checker
 echo "Cleaning up.."
 rm $(pwd)/$1.tar.bz2

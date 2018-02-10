@@ -32,4 +32,4 @@ echo Downloading package using cURL..
 
 curl $PKGPATH > $(pwd)/$1.tar.bz2
 
-state_checker()
+state_checker
