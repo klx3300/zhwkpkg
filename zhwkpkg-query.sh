@@ -18,6 +18,6 @@ then
     exit 1
 fi
 
-echo "Downloading pkglist content.."
+echo "Downloading pkglist content.." 1>&2
 
 curl $LISTPATH 2>/dev/null
