@@ -19,7 +19,7 @@ echo Initiating installation process..
 
 if [ -z $ZHWKPKG_TEMP_FOLDER ]
 then
-    TMPFOLDER='/tmp/zhwktmp'
+    TMPFOLDER="/tmp/zhwktmp-$(whoami)"
 else
     TMPFOLDER="$ZHWKPKG_TEMP_FOLDER"
 fi
